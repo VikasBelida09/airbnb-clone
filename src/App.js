@@ -1,17 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Components/Home/Home";
-import Checkout from "./Components/Checkout/Checkout";
-import Login from "./Components/Login/Login";
-import { useStateValue } from "./Context/StateProvider";
-import { auth } from "./firebase";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import SearchPage from "./Components/SearchPage/SearchPage";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 const App = () => {
   return (
-    <div>
-      <h1>Hello Basic React Setup</h1>
-    </div>  
+    <div className="app">
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/search">
+            <SearchPage />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
   );
 };
 
